@@ -1,7 +1,5 @@
-@font-face {
-  font-family: "Josefin Sans";
-  src: local("Josefin Sans"),
-    url(./fonts/JosefinSans-Regular.ttf) format("truetype");
+body {
+  font-family: "Josefin Sans", sans-serif;
 }
 
 * {
