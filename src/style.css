@@ -39,14 +39,6 @@ input {
   margin-top: 5px;
 }
 
-.message {
-  color: red;
-}
-
-.message {
-  color: green;
-}
-
 .red-color {
   color: var(--desaturated-red);
 }

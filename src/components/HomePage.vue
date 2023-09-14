@@ -12,26 +12,27 @@
           Add your email below to stay up-to-date with announcements and our
           launch deals.
         </p>
-        <form ref="form">
+        <form ref="form" @submit.prevent="send">
           <div class="input__container">
             <input
               v-model="email"
-              :rules="[rules.required, rules.email]"
               class="red-color"
-              place="Email Address"
-              :success-messages="valid && emailSent ? 'Email Sent !' : ''"
+              placeholder="Email Address"
               required
             />
-            <img
-              v-show="!valid && email"
+            <!-- v-show="!valid && email" -->
+            <!-- <img
               src="../assets/icon-error.svg"
               alt="Error"
               class="error-icon"
-            />
+            /> -->
             <button class="submit-btn" @click="validate()">
               <img src="../assets/icon-arrow.svg" />
             </button>
           </div>
+          <h3 :class="`message ${valid ? 'success' : 'error'}`">
+            {{ message }}
+          </h3>
         </form>
       </div>
     </section>
@@ -42,22 +43,34 @@
   <script>
 export default {
   name: "HomePageDesktop",
-  data() {
-    return {
-      email: "",
-      valid: true,
-      emailSent: false,
-      rules: {
-        required: (value) => !!value || "E-mail is required",
-        email: (value) =>
-          /.+@.+\..+/.test(value) || "Please provide a valid email",
-      },
-    };
+  data: () => ({
+    email: "",
+    valid: false,
+    message: "",
+  }),
+  watch: {
+    email: "validate",
   },
   methods: {
     validate() {
-      this.$refs.form.validate();
-      if (this.valid) this.emailSent = true;
+      if (this.email) {
+        const isValid = /.+@.+\..+/.test(this.email);
+        this.valid = isValid;
+
+        if (isValid) {
+          this.message = "";
+        } else {
+          this.message = "Please provide a valid email";
+        }
+      } else {
+        this.message = "E-mail is required";
+      }
+    },
+    send() {
+      console.log(this.valid);
+      if (this.valid) {
+        this.message = "Email Sent !";
+      }
     },
   },
 };
@@ -71,9 +84,12 @@ export default {
 }
 
 input {
+  box-sizing: border-box;
+  font-size: 18px;
   width: 100%;
   height: 100%;
-  padding-right: 20px;
+  padding: 0px 20px;
+  padding-right: 100px;
   border-radius: 5rem;
   outline: none;
 }
@@ -150,6 +166,14 @@ h1 {
   font-size: 18px;
   line-height: 24px;
   margin: 40px 0px;
+}
+
+.error {
+  color: red;
+}
+
+.success {
+  color: green;
 }
 
 @media screen and (max-width: 1400px) {
