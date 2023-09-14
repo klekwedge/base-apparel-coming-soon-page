@@ -1,46 +1,44 @@
 <template>
-  <div class="homepage-desktop">
-    <section>
-      <img src="../assets/logo.svg" alt="Logo" width="200" />
-      <div class="content">
-        <h1 class="title">
-          <span class="red-color">WE'RE</span>
-          COMING SOON
-        </h1>
-        <p class="red-color text">
-          Hello fellow shoppers! We're currently building our new fashion store.
-          Add your email below to stay up-to-date with announcements and our
-          launch deals.
-        </p>
-        <form ref="form" @submit.prevent="send">
-          <div class="input__container">
-            <input
-              v-model="email"
-              class="red-color"
-              placeholder="Email Address"
-              required
-            />
-            <!-- v-show="!valid && email" -->
-            <!-- <img
+  <section>
+    <img src="../assets/logo.svg" alt="Logo" width="200" />
+    <div class="content">
+      <h1 class="title">
+        <span class="red-color">WE'RE</span>
+        COMING SOON
+      </h1>
+      <p class="red-color text">
+        Hello fellow shoppers! We're currently building our new fashion store.
+        Add your email below to stay up-to-date with announcements and our
+        launch deals.
+      </p>
+      <form ref="form" @submit.prevent="send">
+        <div class="input__container">
+          <input
+            v-model="email"
+            class="red-color"
+            placeholder="Email Address"
+            required
+          />
+          <!-- v-show="!valid && email" -->
+          <!-- <img
               src="../assets/icon-error.svg"
               alt="Error"
               class="error-icon"
             /> -->
-            <button class="submit-btn" @click="validate()">
-              <img src="../assets/icon-arrow.svg" />
-            </button>
-          </div>
-          <h3 :class="`message ${valid ? 'success' : 'error'}`">
-            {{ message }}
-          </h3>
-        </form>
-      </div>
-    </section>
-    <img src="../assets/hero-desktop.jpg" alt="Hero" class="hero-img" />
-  </div>
+          <button class="submit-btn" @click="validate()">
+            <img src="../assets/icon-arrow.svg" />
+          </button>
+        </div>
+        <h3 :class="`message ${valid ? 'success' : 'error'}`">
+          {{ message }}
+        </h3>
+      </form>
+    </div>
+  </section>
+  <img src="../assets/hero-desktop.jpg" alt="Hero" class="hero-img" />
 </template>
   
-  <script>
+<script>
 export default {
   name: "HomePageDesktop",
   data: () => ({
@@ -77,12 +75,6 @@ export default {
 </script>
   
 <style lang="css">
-.homepage-desktop {
-  display: flex;
-  font-family: "Josefin Sans";
-  height: 100vh;
-}
-
 input {
   box-sizing: border-box;
   font-size: 18px;
@@ -118,7 +110,7 @@ section {
 }
 
 .hero-img {
-  width: 50%;
+  height: 100vh;
 }
 
 .input__container {
@@ -139,7 +131,6 @@ section {
 
 .content {
   padding-top: 10vh;
-  /* height: 100vh; */
 }
 
 p {
@@ -174,11 +165,5 @@ h1 {
 
 .success {
   color: green;
-}
-
-@media screen and (max-width: 1400px) {
-  .homepage-desktop section {
-    padding: 1rem;
-  }
 }
 </style>
