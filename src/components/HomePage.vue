@@ -2,7 +2,6 @@
   <div class="homepage-desktop">
     <section>
       <img src="../assets/logo.svg" alt="Logo" width="200" />
-
       <div class="content">
         <h1 class="large-text">
           <span class="red-color">WE'RE</span>
@@ -42,7 +41,6 @@
       width="50%"
       class="hero-img"
     />
-    <!-- :position="$vuetify.breakpoint.mdAndDown ? 'center top' : 'left top'" -->
   </div>
 </template>
   
@@ -73,9 +71,14 @@ export default {
 <style lang="css">
 .homepage-desktop {
   display: flex;
-  flex-direction: row !important;
+  flex-direction: row;
   font-family: "Josefin Sans";
   height: 100vh;
+}
+
+.hero-img {
+  /* position: absolute; */
+  /* left-top */
 }
 
 .homepage-desktop .input-div {
@@ -83,8 +86,8 @@ export default {
 }
 
 .homepage-desktop .error-icon {
-  width: 20px !important;
-  height: 20px !important;
+  width: 20px;
+  height: 20px;
   position: relative;
   left: -8vh;
   top: 2vh;
@@ -92,10 +95,10 @@ export default {
 
 .homepage-desktop .submit-btn {
   left: -7vh;
-  width: 95px !important;
-  height: 60px !important;
-  border-radius: 5rem !important;
-  background: linear-gradient(hsl(0, 80%, 86%), hsl(0, 74%, 74%)) !important;
+  width: 95px;
+  height: 60px;
+  border-radius: 5rem;
+  background: linear-gradient(hsl(0, 80%, 86%), hsl(0, 74%, 74%));
 }
 
 .homepage-desktop section {
